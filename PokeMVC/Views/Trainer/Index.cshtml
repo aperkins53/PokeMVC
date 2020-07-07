@@ -1,0 +1,67 @@
+﻿@model IEnumerable<PokeMVC.Models.TrainerListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TrainerId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsGymLeader)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsEliteFour)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsChampion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrainerId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsGymLeader)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsEliteFour)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsChampion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.TrainerId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.TrainerId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.TrainerId }) |
+            @Html.ActionLink("Pokemon", "TrainerTeam", new { id = item.TrainerId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,96 @@
+﻿@model PokeMVC.Models.PokemonDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PokemonDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PokemonId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PokemonId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PokedexNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PokedexNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Species)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Species)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecondaryType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecondaryType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EvoCondition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EvoCondition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OriginalRegion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OriginalRegion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsLegendary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsLegendary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsMythical)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsMythical)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

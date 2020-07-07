@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokeMVC.Web", "PokeMVC\PokeMVC.Web.csproj", "{938D8A45-D66C-48C3-96F1-AEF5956CC262}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokeMVC.Data", "PokeMVC.Data\PokeMVC.Data.csproj", "{EF52F689-6ED2-472B-8F21-357F361D443E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokeMVC.Models", "PokeMVC.Models\PokeMVC.Models.csproj", "{FBF5524E-C176-4049-A900-9194D2BF1319}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokeMVC.Services", "PokeMVC.Services\PokeMVC.Services.csproj", "{6DC46EED-50F9-48BB-8955-5723D05885B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{938D8A45-D66C-48C3-96F1-AEF5956CC262}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{938D8A45-D66C-48C3-96F1-AEF5956CC262}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{938D8A45-D66C-48C3-96F1-AEF5956CC262}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{938D8A45-D66C-48C3-96F1-AEF5956CC262}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF52F689-6ED2-472B-8F21-357F361D443E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF52F689-6ED2-472B-8F21-357F361D443E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF52F689-6ED2-472B-8F21-357F361D443E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF52F689-6ED2-472B-8F21-357F361D443E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBF5524E-C176-4049-A900-9194D2BF1319}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBF5524E-C176-4049-A900-9194D2BF1319}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBF5524E-C176-4049-A900-9194D2BF1319}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBF5524E-C176-4049-A900-9194D2BF1319}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DC46EED-50F9-48BB-8955-5723D05885B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DC46EED-50F9-48BB-8955-5723D05885B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DC46EED-50F9-48BB-8955-5723D05885B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DC46EED-50F9-48BB-8955-5723D05885B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {23D370AA-2ACD-433D-AE10-29B9DCD3E8DE}
+	EndGlobalSection
+EndGlobal

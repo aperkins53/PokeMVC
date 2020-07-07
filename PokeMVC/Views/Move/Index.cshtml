@@ -1,0 +1,73 @@
+﻿@model IEnumerable<PokeMVC.Models.MoveListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MoveId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoveName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MovePower)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoveAccuracy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MovePP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExtraEffect)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoveId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoveName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MovePower)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoveAccuracy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MovePP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExtraEffect)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MoveId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MoveId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MoveId })
+            </td>
+        </tr>
+    }
+
+</table>

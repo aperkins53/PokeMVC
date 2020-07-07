@@ -1,0 +1,84 @@
+﻿@model PokeMVC.Models.PokemonDetail
+
+<div>
+    <h4>PokemonDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PokemonId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PokemonId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PokedexNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PokedexNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Species)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Species)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecondaryType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecondaryType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EvoCondition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EvoCondition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OriginalRegion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OriginalRegion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsLegendary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsLegendary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsMythical)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsMythical)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PokemonId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
