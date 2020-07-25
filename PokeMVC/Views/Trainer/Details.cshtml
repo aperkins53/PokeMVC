@@ -52,6 +52,57 @@
 
     </dl>
 </div>
+
+<div>
+    <h4>Trainer's Team</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @foreach (var pokemon in Model.TrainerTeam)
+        {
+            <dt>
+                @Html.DisplayNameFor(_ => pokemon.PokedexNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(_ => pokemon.PokedexNumber)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(_ => pokemon.Species)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(_ => pokemon.Species)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(_ => pokemon.Level)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(_ => pokemon.Level)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(_ => pokemon.PrimaryType)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(_ => pokemon.PrimaryType)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(_ => pokemon.SecondaryType)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(_ => pokemon.SecondaryType)
+            </dd>
+
+            <hr />
+        }
+    </dl>
+</div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.TrainerId }) |
     @Html.ActionLink("Back to List", "Index")

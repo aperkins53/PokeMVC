@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Migrations.Model;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,5 +28,9 @@ namespace PokeMVC.Data
         public int MovePP { get; set; }
         [Display(Name = "Extra Effect")]
         public string ExtraEffect { get; set; }
+
+        public ICollection<PokemonMove> PokemonWithThisMove { get; set; }
+
+        //ICollection of PokemonMoves (our junction table that we have not built yet)
     }
 }

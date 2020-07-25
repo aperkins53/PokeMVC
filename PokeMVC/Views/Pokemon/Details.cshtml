@@ -1,5 +1,7 @@
 ﻿@model PokeMVC.Models.PokemonDetail
-
+@{ 
+    var emptyMove = new PokeMVC.Models.MoveListItem();
+}
 <div>
     <h4>PokemonDetail</h4>
     <hr />
@@ -77,6 +79,56 @@
         </dd>
 
     </dl>
+
+    <div>
+        <table class="table">
+            <tr>
+                <th>
+                    <b> Move ID </b>
+                </th>
+                <th>
+                    <b> Move Name </b>
+                </th>
+                <th>
+                    <b> Move Power </b>
+                </th>
+                <th>
+                    <b> Move Accuracy </b>
+                </th>
+                <th>
+                    <b> Move PP </b>
+                </th>
+                <th>
+                    <b> Extra Effect </b>
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.Moves)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MoveId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MoveName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MovePower)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MoveAccuracy)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MovePP)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ExtraEffect)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>   
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.PokemonId }) |

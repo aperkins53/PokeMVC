@@ -123,5 +123,63 @@ namespace PokeMVC.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult AddMoveToPokemon(int id)
+        {
+            var pokemonService = new PokemonService();
+
+            var moveService = new MoveService();
+
+            var pokemon = pokemonService.GetPokemonById(id);
+
+           // ViewBag.PokemonId = new SelectList(pokemonService.GetAllPokemon(), "PokemonId", "Species", pokemon.PokemonId);
+
+            ViewBag.MoveId = new SelectList(moveService.GetMoves(), "MoveId", "MoveName");
+
+            return View(pokemon);
+        }
+
+        [HttpPost]
+        [ActionName("AddMoveToPokemon")]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddMoveToPokemonPost(int pokemonId /*this int never gets used, pokemon id is in the model because of hidden for*/, int moveId, PokemonDetail pokemon)
+        {
+            var pokemonService = new PokemonService();
+
+            pokemonService.AddMoveToPokemon(pokemon.PokemonId, moveId);
+
+            TempData["SaveResult"] = "The move was added to the Pokemon!";
+
+            return RedirectToAction("Index");
+        }
+
+        //[ActionName("CreateTeam")]
+        //public ActionResult CreateTeam()
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var pokemonService = new PokemonService();
+        //        ViewBag.PokemonId = new SelectList(ctx.AllPokemon.ToList(), "PokemonId", "Species");
+        //        return View("UserTeam");
+        //    }
+        //}
+
+
+        //[HttpPost]
+        //[ActionName("AddPokemonToUserTeam")]
+        //public ActionResult AddPokemonToUserTeamPost(int pokemonId)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var pokemonService = new PokemonService();
+
+        //        pokemonService.AddPokemonToUserTeam(pokemonId);
+
+        //        TempData["SaveResult"] = "The Pokemon was added to the user's team.";
+
+
+        //        return RedirectToAction("UserTeam");
+        //    }
+        //}
     }
 }

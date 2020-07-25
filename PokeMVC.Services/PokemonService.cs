@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Documents;
 
 namespace PokeMVC.Services
 {
@@ -60,12 +62,30 @@ namespace PokeMVC.Services
 
         public PokemonDetail GetPokemonById(int id)
         {
+            List<MoveListItem> _moves = new List<MoveListItem>();
+
             using (var ctx = new ApplicationDbContext())
             {
                 var pokemon = 
                     ctx
                         .AllPokemon
                         .Single(p => p.PokemonId == id);
+
+                foreach (var move in pokemon.Moves)
+                {
+                    var newMove = new MoveListItem
+                    {
+                        MoveId = move.MoveId,
+                        MoveName = move.Move.MoveName,
+                        MovePower = move.Move.MovePower,
+                        MoveAccuracy = move.Move.MoveAccuracy,
+                        MovePP = move.Move.MovePP,
+                        ExtraEffect = move.Move.ExtraEffect
+                    };
+
+                    _moves.Add(newMove);
+                }
+
                 return
                     new PokemonDetail
                     {
@@ -77,7 +97,8 @@ namespace PokeMVC.Services
                         EvoCondition = pokemon.EvoCondition,
                         OriginalRegion = pokemon.OriginalRegion,
                         IsLegendary = pokemon.IsLegendary,
-                        IsMythical = pokemon.IsMythical
+                        IsMythical = pokemon.IsMythical,
+                        Moves = _moves
                     };
             }
         }
@@ -118,5 +139,41 @@ namespace PokeMVC.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public bool AddMoveToPokemon(int pokemonId, int moveId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                //var pokemon =
+                //    ctx.AllPokemon.Single(p => p.PokemonId == pokemonId);     // Unnecessary database call
+
+                ////var move =
+                ////    ctx.Moves.Single(m => m.MoveId == moveId);              // Unnecessary database call
+                var newPokemonMove = new PokemonMove()                          //We only care about the ID's!
+                {
+                    MoveId = moveId,
+                    PokemonId = pokemonId
+                };
+
+                ctx.PokemonMoves.Add(newPokemonMove);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        //public bool AddPokemonToUserTeam(int pokemonId)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        Pokemon pokemon = new Pokemon();
+
+        //        var pokemonToAdd =
+        //            ctx.AllPokemon.Single(p => p.PokemonId == pokemonId);
+
+        //        pokemon.UserTeam.Add(pokemonToAdd);
+
+        //        return ctx.SaveChanges() == 1;
+        //    }
+        //}
     }
 }

@@ -38,6 +38,8 @@ namespace PokeMVC.Data
 
         public DbSet<Trainer> Trainers { get; set; }
 
+        public DbSet<PokemonMove> PokemonMoves { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

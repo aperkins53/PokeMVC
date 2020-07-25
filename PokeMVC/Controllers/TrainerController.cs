@@ -37,7 +37,7 @@ namespace PokeMVC.Controllers
 
             if (trainerService.CreateTrainer(trainer))
             {
-                TempData["SaveResult"] = "The trainer was added.";
+                TempData["SaveResult"] = "The trainer was added!";
                 return RedirectToAction("Index");
             };
 
@@ -98,6 +98,7 @@ namespace PokeMVC.Controllers
         public ActionResult Delete(int id)
         {
             var trainerService = new TrainerService();
+
             var trainer = trainerService.GetTrainerById(id);
 
             return View(trainer);
@@ -113,6 +114,34 @@ namespace PokeMVC.Controllers
             trainerService.DeleteTrainer(id);
 
             TempData["SaveResult"] = "The trainer was deleted.";
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult AddPokemonToTrainerTeam(int id)
+        {
+            var pokemonService = new PokemonService();
+
+            var trainerService = new TrainerService();
+
+            var trainer = trainerService.GetTrainerById(id);
+
+            ViewBag.PokemonId = new SelectList(pokemonService.GetAllPokemon(), "PokemonId", "Species");
+
+            return View(trainer);
+
+        }
+
+        [HttpPost]
+        [ActionName("AddPokemonToTrainerTeam")]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddPokemonToTrainerTeamPost(int pokemonId, int trainerId, TrainerDetail trainer)
+        {
+            var trainerService = new TrainerService();
+
+            trainerService.AddPokemonToTrainerTeam(trainer.PokemonId, trainerId);
+
+            TempData["SaveResult"] = "The Pokemon was added to the trainer's team.";
 
             return RedirectToAction("Index");
         }

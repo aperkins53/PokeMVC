@@ -3,6 +3,8 @@ using PokeMVC.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -39,6 +41,7 @@ namespace PokeMVC.Services
                             t =>
                                 new TrainerListItem
                                 {
+                                    TrainerId = t.TrainerId,
                                     Name = t.Name,
                                     IsGymLeader = t.IsGymLeader,
                                     IsEliteFour = t.IsEliteFour,
@@ -64,7 +67,8 @@ namespace PokeMVC.Services
                         Name = trainer.Name,
                         IsGymLeader = trainer.IsGymLeader,
                         IsEliteFour = trainer.IsEliteFour,
-                        IsChampion = trainer.IsChampion
+                        IsChampion = trainer.IsChampion,
+                        TrainerTeam = trainer.TrainerTeam
                     };
             }
         }
@@ -97,6 +101,46 @@ namespace PokeMVC.Services
                         .Single(t => t.TrainerId == trainerId);
 
                 ctx.Trainers.Remove(trainerToDelete);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        //public ICollection<Pokemon> GetTrainerTeam(int trainerId)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var trainer =
+        //            ctx.Trainers.Single(t => t.TrainerId == trainerId);
+
+        //        foreach (var pokemon in trainer.TrainerTeam)
+        //        {
+        //            new Pokemon
+        //            {
+        //                PokedexNumber = pokemon.PokedexNumber,
+        //                Species = pokemon.Species,
+        //                PrimaryType = pokemon.PrimaryType,
+        //                SecondaryType = pokemon.SecondaryType,
+        //                Level = pokemon.Level
+        //            };
+        //        }
+
+        //        return trainer.TrainerTeam;
+        //    };
+        //}
+
+        public bool AddPokemonToTrainerTeam(int pokemonId, int trainerId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var trainer = ctx.Trainers.Single(t => t.TrainerId == trainerId);
+
+                var pokemonToAdd =
+                    ctx.AllPokemon.Single(p => p.PokemonId == pokemonId);
+
+                trainer.TrainerTeam.Add(pokemonToAdd);
+
+                pokemonToAdd.Level = ctx.AllPokemon.Single(p => p.PokemonId == pokemonId).Level;
 
                 return ctx.SaveChanges() == 1;
             }

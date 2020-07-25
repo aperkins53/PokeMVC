@@ -58,6 +58,10 @@
     <Compile Include="MoveModels\MoveDetail.cs" />
     <Compile Include="MoveModels\MoveEdit.cs" />
     <Compile Include="MoveModels\MoveListItem.cs" />
+    <Compile Include="PMModels\PMCreate.cs" />
+    <Compile Include="PMModels\PMDetail.cs" />
+    <Compile Include="PMModels\PMEdit.cs" />
+    <Compile Include="PMModels\PMListItem.cs" />
     <Compile Include="PokemonModels\PokemonCreate.cs" />
     <Compile Include="PokemonModels\PokemonDetail.cs" />
     <Compile Include="PokemonModels\PokemonEdit.cs" />
@@ -71,6 +75,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PokeMVC.Data\PokeMVC.Data.csproj">
+      <Project>{ef52f689-6ed2-472b-8f21-357f361d443e}</Project>
+      <Name>PokeMVC.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

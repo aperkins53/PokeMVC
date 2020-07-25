@@ -1,0 +1,50 @@
+﻿@model PokeMVC.Models.PokemonDetail
+
+@{
+    ViewBag.Title = "AddMoveToPokemon";
+}
+
+<h2>Add Move To Pokemon</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Add Pokemon</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(pokemon => pokemon.PokemonId) @*If you don't have the hidden for, your model will not get the ID, breakpoint it and check the properties that are null in the post method*@
+        <div class="form-group">
+            @Html.LabelFor(pokemon => pokemon.Species, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @* @Html.DropDownList("PokemonId", null, "Choose Pokemon", htmlAttributes: new { @class = "form-control" })*@
+                @Html.DisplayFor(pokemon => pokemon.Species);
+                @Html.ValidationMessageFor(pokemon => pokemon.Species, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(pokemon => pokemon.Move.Move.MoveName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MoveId", null, "Choose Move", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(pokemon => pokemon.Move.Move.MoveName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Add" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

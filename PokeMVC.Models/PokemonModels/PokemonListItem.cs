@@ -9,7 +9,7 @@ namespace PokeMVC.Models
 {
     public class PokemonListItem
     {
-        [Display(Name = "Pokedex ID")]
+        [Display(Name = "Pokemon ID")]
         public int PokemonId { get; set; }
         [Display(Name = "Pokedex Number")]
         public int PokedexNumber { get; set; }

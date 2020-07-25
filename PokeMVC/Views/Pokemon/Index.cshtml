@@ -9,6 +9,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
 @if (TempData.ContainsKey("SaveResult"))
 {
     <div class="alert alert-success fade in" role="alert">
@@ -83,7 +84,8 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.PokemonId }) |
                 @Html.ActionLink("Details", "Details", new { id = item.PokemonId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.PokemonId })
+                @Html.ActionLink("Delete", "Delete", new { id = item.PokemonId }) |
+                @Html.ActionLink("Add Move", "AddMoveToPokemon", new { id = item.PokemonId })
             </td>
         </tr>
     }

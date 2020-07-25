@@ -17,6 +17,7 @@ namespace PokeMVC.Models
         [MinLength(3, ErrorMessage = "Please enter at least 3 characters.")]
         [MaxLength(11, ErrorMessage = "You have entered too many characters.")]
         public string Species { get; set; }
+        public int Level { get; set; }
         [Required]
         [Display(Name = "Primary Type")]
         [MinLength(3, ErrorMessage = "Please enter at least 3 characters.")]

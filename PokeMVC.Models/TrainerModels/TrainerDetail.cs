@@ -1,6 +1,8 @@
-﻿using System;
+﻿using PokeMVC.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -19,5 +21,11 @@ namespace PokeMVC.Models
         public bool IsEliteFour { get; set; }
         [Display(Name = "Champion")]
         public bool IsChampion { get; set; }
+
+
+        [ForeignKey("Pokemon")]
+        public int PokemonId { get; set; }
+        public virtual Pokemon Pokemon { get; set; }
+        public virtual ICollection<Pokemon> TrainerTeam { get; set; }
     }
 }

@@ -19,6 +19,7 @@ namespace PokeMVC.Data
         public int PokedexNumber { get; set; }
         [Required]
         public string Species { get; set; }
+        public int Level { get; set; }
         [Required]
         [Display(Name = "Primary Type")]
         public string PrimaryType { get; set; }
@@ -26,23 +27,6 @@ namespace PokeMVC.Data
         public string SecondaryType { get; set; }
         [Display(Name = "Evolution Condition")]
         public string EvoCondition { get; set; }
-
-        //[ForeignKey("Move")]
-        //public int FirstMoveId { get; set; }
-        //public virtual Move FirstMove { get; set; }
-
-        //[ForeignKey("Move")]
-        //public int SecondMoveId { get; set; }
-        //public virtual Move SecondMove { get; set; }
-
-        //[ForeignKey("Move")]
-        //public int ThirdMoveId { get; set; }
-        //public virtual Move ThirdMove { get; set; }
-
-        //[ForeignKey("Move")]
-        //public int FourthMoveId { get; set; }
-        //public virtual Move FourthMove { get; set; }
-
         [Required]
         [Display(Name = "Original Region")]
         public string OriginalRegion { get; set; }
@@ -52,5 +36,7 @@ namespace PokeMVC.Data
         [Required]
         [Display(Name = "Mythical")]
         public bool IsMythical { get; set; }
+
+        public virtual ICollection<PokemonMove> Moves { get; set; }
     }
 }
