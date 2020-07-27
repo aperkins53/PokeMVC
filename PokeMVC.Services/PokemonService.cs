@@ -19,6 +19,7 @@ namespace PokeMVC.Services
                 {
                     PokedexNumber = pokemon.PokedexNumber,
                     Species = pokemon.Species,
+                    Level = pokemon.Level,
                     PrimaryType = pokemon.PrimaryType,
                     SecondaryType = pokemon.SecondaryType,
                     EvoCondition = pokemon.EvoCondition,
@@ -48,6 +49,7 @@ namespace PokeMVC.Services
                                     PokemonId = p.PokemonId,
                                     PokedexNumber = p.PokedexNumber,
                                     Species = p.Species,
+                                    Level = p.Level,
                                     PrimaryType = p.PrimaryType,
                                     SecondaryType = p.SecondaryType,
                                     EvoCondition = p.EvoCondition,
@@ -92,6 +94,7 @@ namespace PokeMVC.Services
                         PokemonId = pokemon.PokemonId,
                         PokedexNumber = pokemon.PokedexNumber,
                         Species = pokemon.Species,
+                        Level = pokemon.Level,
                         PrimaryType = pokemon.PrimaryType,
                         SecondaryType = pokemon.SecondaryType,
                         EvoCondition = pokemon.EvoCondition,
@@ -114,6 +117,7 @@ namespace PokeMVC.Services
 
                 pokemonToUpdate.PokedexNumber = pokemon.PokedexNumber;
                 pokemonToUpdate.Species = pokemon.Species;
+                pokemonToUpdate.Level = pokemon.Level;
                 pokemonToUpdate.PrimaryType = pokemon.PrimaryType;
                 pokemonToUpdate.SecondaryType = pokemon.SecondaryType;
                 pokemonToUpdate.EvoCondition = pokemon.EvoCondition;
