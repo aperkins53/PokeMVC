@@ -129,7 +129,6 @@ namespace PokeMVC.Controllers
             ViewBag.PokemonId = new SelectList(pokemonService.GetAllPokemon(), "PokemonId", "Species");
 
             return View(trainer);
-
         }
 
         [HttpPost]

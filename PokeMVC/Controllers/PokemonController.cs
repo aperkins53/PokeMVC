@@ -66,6 +66,7 @@ namespace PokeMVC.Controllers
                     PokemonId = pokemon.PokemonId,
                     PokedexNumber = pokemon.PokedexNumber,
                     Species = pokemon.Species,
+                    Level = pokemon.Level,
                     PrimaryType = pokemon.PrimaryType,
                     SecondaryType = pokemon.SecondaryType,
                     EvoCondition = pokemon.EvoCondition,

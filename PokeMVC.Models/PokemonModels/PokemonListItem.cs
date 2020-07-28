@@ -14,6 +14,7 @@ namespace PokeMVC.Models
         [Display(Name = "Pokedex Number")]
         public int PokedexNumber { get; set; }
         public string Species { get; set; }
+        public int Level { get; set; }
         [Display(Name = "Primary Type")]
         public string PrimaryType { get; set; }
         [Display(Name = "Secondary Type")]

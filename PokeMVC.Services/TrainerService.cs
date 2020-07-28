@@ -140,8 +140,6 @@ namespace PokeMVC.Services
 
                 trainer.TrainerTeam.Add(pokemonToAdd);
 
-                pokemonToAdd.Level = ctx.AllPokemon.Single(p => p.PokemonId == pokemonId).Level;
-
                 return ctx.SaveChanges() == 1;
             }
         }
